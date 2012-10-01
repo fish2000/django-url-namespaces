@@ -6,13 +6,13 @@ ADMINS = ()
 MANAGERS = ADMINS
 
 import os
-virtualpath = lambda *pths: os.path.join('/Users/fish/Praxa/xx', *pths)
+virtualpath = lambda *pths: os.path.join(os.path.dirname(os.path.dirname(__file__)), *pths)
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': virtualpath('var', 'db', 'dev.db'),
-        'TEST_NAME': virtualpath('var', 'db', 'test.db'),
+        'NAME': virtualpath('test', 'dev.db'),
+        'TEST_NAME': virtualpath('test', 'test.db'),
         'USER': '',
         'PASSWORD': '',
         'HOST': '',
@@ -24,16 +24,16 @@ CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
         'LOCATION': '/Users/fish/Praxa/xx/var/run/memcached.sock',
-        'KEY_PREFIX': 'xx-',
+        'KEY_PREFIX': 'test-',
     },
     'localmemory': {
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'ost4',
+        'LOCATION': 'test4',
     },
 }
 
 CACHE_MIDDLEWARE_SECONDS = 60
-CACHE_MIDDLEWARE_KEY_PREFIX = "xx-cache"
+CACHE_MIDDLEWARE_KEY_PREFIX = "test-cache"
 SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
 
 TIME_ZONE = 'America/New_York'
@@ -43,10 +43,10 @@ USE_I18N = False
 USE_L10N = False
 USE_TZ = False
 
-MEDIA_ROOT = virtualpath('var', 'web', 'face')
+MEDIA_ROOT = virtualpath('test', 'web', 'face')
 MEDIA_URL = '/face/'
 TEMPLATE_DIRS = ()
-STATIC_ROOT = virtualpath('var', 'web', 'static')
+STATIC_ROOT = virtualpath('test', 'web', 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = ()
 STATICFILES_FINDERS = (
@@ -85,8 +85,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
 )
 
-ROOT_URLCONF = 'xx.urls'
-WSGI_APPLICATION = 'xx.wsgi.application'
+ROOT_URLCONF = 'test.urls'
+WSGI_APPLICATION = 'test.wsgi.application'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -100,14 +100,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.markup',
     
-    'south',
-    'tagging',
-    'gunicorn',
-    'django_nose',
-    'imagekit',
-    'signalqueue',
-    'djxx',
-    'djxx_tests',
+    'test',
 )
 
 LOGGING = {
@@ -147,24 +140,6 @@ LOGGING = {
         },
     },
 }
-
-SQ_QUEUES = {
-    'default': {
-        'ENGINE': 'signalqueue.worker.backends.DatabaseQueueProxy',
-        'INTERVAL': 30, # 1/3 sec
-        'OPTIONS': dict(
-            app_label='signalqueue', modl_name='EnqueuedSignal'),
-    },
-    #'redis': {
-    #    'ENGINE': 'signalqueue.worker.backends.RedisSetQueue',
-    #    'INTERVAL': 30, # 1/3 sec
-    #    'OPTIONS': dict(
-    #        port=0, unix_socket_path="/Users/fish/Praxa/xx/var/run/redis.sock"),
-    #},
-}
-
-SQ_RUNMODE = 'SQ_ASYNC_REQUEST'
-SQ_WORKER_PORT = 11231
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
