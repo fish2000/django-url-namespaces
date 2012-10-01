@@ -20,21 +20,8 @@ DATABASES = {
     }
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
-        'LOCATION': '/Users/fish/Praxa/xx/var/run/memcached.sock',
-        'KEY_PREFIX': 'test-',
-    },
-    'localmemory': {
-        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-        'LOCATION': 'test4',
-    },
-}
-
-CACHE_MIDDLEWARE_SECONDS = 60
-CACHE_MIDDLEWARE_KEY_PREFIX = "test-cache"
-SESSION_ENGINE = "django.contrib.sessions.backends.cached_db"
+ROOT_URLCONF = 'test.urls'
+WSGI_APPLICATION = 'test.wsgi.application'
 
 TIME_ZONE = 'America/New_York'
 LANGUAGE_CODE = 'en-us'
@@ -65,12 +52,10 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
-    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.gzip.GZipMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -85,9 +70,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.static",
 )
 
-ROOT_URLCONF = 'test.urls'
-WSGI_APPLICATION = 'test.wsgi.application'
-
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -101,6 +83,7 @@ INSTALLED_APPS = (
     'django.contrib.markup',
     
     'test',
+    'testapp',
 )
 
 LOGGING = {

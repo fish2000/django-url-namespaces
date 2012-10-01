@@ -8,9 +8,9 @@ _DJANGO_SETTINGS_MODULE = "ost2.settings"
 
 
 TM_PYTHON = "/usr/local/bin/python"
-TM_PYTHONPATH = ".:/Users/fish/Praxa/xx/lib/python2.7/site-packages:/Users/fish/Praxa/xx/local/lib/python2.7/site-packages:/Users/fish/Praxa/xx/instance/xx:/Users/fish/Praxa/xx/instance:/Users/fish/Praxa/xx/lib/python2.7/site-packages:/Users/fish/Praxa/xx"
-PYTHONPATH = ".:/Users/fish/Praxa/xx/lib/python2.7/site-packages:/Users/fish/Praxa/xx/local/lib/python2.7/site-packages:/Users/fish/Praxa/xx/instance/xx:/Users/fish/Praxa/xx/instance:/Users/fish/Praxa/xx/lib/python2.7/site-packages:/Users/fish/Praxa/xx"
-DJANGO_SETTINGS_MODULE = "settings"
+TM_PYTHONPATH = ".:/Users/fish/Dropbox/django-url-namespaces:/Users/fish/Praxa/xx/lib/python2.7/site-packages:/Users/fish/Praxa/xx/local/lib/python2.7/site-packages:/Users/fish/Praxa/xx/instance/xx:/Users/fish/Praxa/xx/instance:/Users/fish/Praxa/xx/lib/python2.7/site-packages:/Users/fish/Praxa/xx"
+PYTHONPATH = ".:/Users/fish/Dropbox/django-url-namespaces:/Users/fish/Praxa/xx/lib/python2.7/site-packages:/Users/fish/Praxa/xx/local/lib/python2.7/site-packages:/Users/fish/Praxa/xx/instance/xx:/Users/fish/Praxa/xx/instance:/Users/fish/Praxa/xx/lib/python2.7/site-packages:/Users/fish/Praxa/xx"
+DJANGO_SETTINGS_MODULE = "test.settings"
 
 
 

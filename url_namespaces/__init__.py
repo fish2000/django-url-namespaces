@@ -29,6 +29,7 @@ def modulize(ns):
     ns_module = types.ModuleType(ns_modname, "Dynamic URLConf Module")
     ns_module.__dict__.update({
         'urlpatterns': ns._evaluate(), })
+    print "ns_modname = %s" % ns_modname
     sys.modules.update({
         ns_modname: ns_module, })
     return ns_module
@@ -79,7 +80,6 @@ class ArgumentSink(object):
         setattr(cls, name, self)
         if hasattr(cls, '_meta'):
             if hasattr(cls._meta, 'options'):
-                self._options.update(cls._meta.__dict__)
                 self.process(name=name, **cls._meta.options)
     
     def process(self, **options):
@@ -227,7 +227,8 @@ class Namespace(URLBase):
         super(Namespace, self).__init__(url_pattern, action=None)
     
     def process(self, **options):
-        if self.namespace and options.get('namespace', ''):
+        #if self.namespace and options.get('namespace', ''):
+        if self.namespace:
             #parent_namespace = options.get('namespace', '')
             options.update({
                 'namespace': self.namespace, })
@@ -265,7 +266,6 @@ class Namespace(URLBase):
         return getattr(self._meta, 'namespace',
             self._options.get('namespace', "dyn_ns_%s" % hash(self)))
     
-    @memo(CACHE)
     def _evaluate(self):
         urls_out = []
         for url_out in self.ordered_urls:
@@ -273,8 +273,16 @@ class Namespace(URLBase):
         return patterns(self.view_prefix, *urls_out)
 
     def evaluate(self):
-        return url(self.url_pattern, (modulize(self), self._meta.namespace, self._meta.app_name),
-            kwargs=self._kwargs)
+        pprint(self.__dict__)
+        #return url(self.url_pattern, (modulize(self), self._meta.namespace, self._meta.app_name), kwargs=self._kwargs)
+        return url(self.url_pattern, (modulize(self), self._meta.namespace, self._meta.app_name), kwargs=self._kwargs)
+    
+    def connect(self, name):
+        cls = self.__class__
+        if hasattr(cls, '_meta'):
+            if hasattr(cls._meta, 'options'):
+                self.process(name=name, **cls._meta.options)
+        return self.evaluate()
     
     def __dir__(self):
         return self.ordered_names
