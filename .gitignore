@@ -1,0 +1,13 @@
+.DS_Store
+Icon*
+
+viron.egg-info/
+dist/
+build/
+src/scripts/
+
+MANIFEST
+*.pyc
+*.pyo
+*.db
+twitter-app-keyset.json
