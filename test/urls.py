@@ -12,20 +12,20 @@ class MyOtherURLs(Namespace):
     class Meta:
         namespace = 'testapp:views' # optional
         app_name = 'testapp' # optional
-        view_prefix = 'views' # optional
+        view_prefix = '' # optional
         
     rss = View(
         r'^(?P<blog>[\w\-]+)/rss/?$',
-            'blogrss',
+            'testapp.views.blogrss',
             arg='yo', other_arg='dogg')
         
     index = View(
         r'^(?P<blog>[\w\-]+)/$',
-            'blogpage')
+            'testapp.views.blogpage')
         
     entry = View(
         r'^(?P<blog>[\w\-]+)/(?P<entry>[\w\-]+)/?$',
-            'blogentrypage')
+            'testapp.views.blogentrypage')
     
     
 class MyURLs(Namespace):
@@ -33,7 +33,7 @@ class MyURLs(Namespace):
     class Meta:
         namespace = 'testapp' # optional
         app_name = 'testapp' # optional
-        view_prefix = 'testapp' # optional
+        view_prefix = '' # optional
         
     pages = MyOtherURLs(r'^/pages/')
         
