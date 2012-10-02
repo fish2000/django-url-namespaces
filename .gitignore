@@ -2,7 +2,7 @@
 Icon*
 .tm_properties
 
-url_namespaces.egg-info/
+django_url_namespaces.egg-info/
 dist/
 build/
 src/scripts/
