@@ -1,0 +1,8 @@
+include .gitignore
+include README.md
+include setup.py
+include manage.py
+recursive-include test *.py
+recursive-include testapp *.py
+recursive-include url_namespaces *.py
+
