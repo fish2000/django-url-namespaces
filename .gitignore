@@ -1,7 +1,8 @@
 .DS_Store
 Icon*
+.tm_properties
 
-viron.egg-info/
+url_namespaces.egg-info/
 dist/
 build/
 src/scripts/
@@ -10,4 +11,3 @@ MANIFEST
 *.pyc
 *.pyo
 *.db
-twitter-app-keyset.json

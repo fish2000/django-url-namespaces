@@ -82,8 +82,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.markup',
     
+    'django_extensions',
+    'test_utils',
+    
     'test',
     'testapp',
+    'testapp.views',
 )
 
 LOGGING = {

@@ -105,7 +105,7 @@ class URLBase(ArgumentSink):
 
 
 class View(URLBase):
-    @memo(CACHE)
+    #@memo(CACHE)
     def ____evaluate(self):
         if isinstance(self.action, basestring):
             if isinstance(self._options.get('view_prefix'), basestring):
@@ -116,7 +116,7 @@ class View(URLBase):
 
 
 class Redirect(URLBase):
-    @memo(CACHE)
+    #@memo(CACHE)
     def evaluate(self):
         if isinstance(self.action, basestring):
             redirect_url = self.action
@@ -126,7 +126,7 @@ class Redirect(URLBase):
 
 
 class ReverseRedirect(URLBase):
-    @memo(CACHE)
+    #@memo(CACHE)
     def evaluate(self):
         if isinstance(self.action, basestring):
             redirect_url_name = self.action
@@ -244,12 +244,12 @@ class Namespace(URLBase):
         super(Namespace, self).process(**options)
     
     @property
-    @memo(CACHE)
+    #@memo(CACHE)
     def ordered_urls(self):
         return (getattr(self, uu[0]) for uu in self._meta.urls)
     
     @property
-    @memo(CACHE)
+    #@memo(CACHE)
     def ordered_names(self):
         return (uu[0] for uu in self._meta.urls)
     

@@ -43,15 +43,15 @@ class MyURLs(Namespace):
         
     root = ReverseRedirect(
         r'^/?',
-            'testapp:views:index', blog="ost")
+            'testapp:index', blog="test")
         
     entry_redirect = ReverseRedirect(
         r'^blog/(?P<blog>[\w\-]+)/(?P<entry>[\w\-]+)/?$',
-            'testapp:views:entry', blog="%(blog)s", entry="%(entry)s")
+            'testapp:entry', blog="%(blog)s", entry="%(entry)s")
         
     entry_redirect_again = KeywordReverseRedirect(
         r'^blog/(?P<blog>[\w\-]+)/(?P<entry>[\w\-]+)/?$',
-            'testapp:views:entry')
+            'testapp:entry')
 
 
 urlpatterns = patterns('',
