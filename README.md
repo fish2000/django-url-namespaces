@@ -75,3 +75,7 @@ which can be modularly rearranged without the worries incumbent in getting ones'
 URLConf syntax.
 
 At the time of writing the project is in a state of somewhat indeterminate disrepair; namespaces don't nest quite right, there's a lot of sketchy code commented out and not enough docstrings, etc. If this is the sort of thing that floats your boat, know that I never turn away an entertaining pull-request, indeed!
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/fish2000/django-url-namespaces/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
