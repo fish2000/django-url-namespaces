@@ -51,21 +51,24 @@ if 'sdist' in sys.argv and 'upload' in sys.argv:
         commands.getstatusoutput(finder % theplace)
         print("")
 
+# install_requires=['django<=1.5.4'],
+
 setup(
-    name=name, version=version, description=description,
-    keywords=keywords, platforms=['any'], packages=['url_namespaces'],
+    name=name,
+    version=version,
+    description=description,
+    keywords=keywords,
+    platforms=['any'],
     
-    author=u"Alexander Bohn", author_email='fish2000@gmail.com',
+    author=u"Alexander Bohn",
+    author_email='fish2000@gmail.com',
     
     license='MIT',
     url='http://github.com/fish2000/%s/' % name,
     download_url='http://github.com/fish2000/%s/zipball/master' % name,
     
-    package_dir={
-        'url_namespaces': 'url_namespaces' },
-    
-    install_requires=[
-        'django'],
+    packages=['url_namespaces'],
+    package_dir={ 'url_namespaces': 'url_namespaces', },
     
     classifiers=classifiers+[
         'License :: OSI Approved :: MIT License',

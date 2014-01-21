@@ -19,12 +19,16 @@ if __name__ == "__main__":
     except NoReverseMatch, err:
         print "NoReverseMatch: %s" % err
     
+    print ""
+    
     try:
         print "REVERSE: %s" % reverse('testapp:testapp:entry',
             current_app='testapp',
             kwargs=dict(blog='ost-blog', entry='yo-dogg-i-heard-you-liked-blogs'))
     except NoReverseMatch, err:
         print "NoReverseMatch: %s" % err
+    
+    print ""
     
     from test import urls
     from url_namespaces import modulize
@@ -35,5 +39,6 @@ if __name__ == "__main__":
     except NoReverseMatch, err:
         print "NoReverseMatch: %s" % err
     
+    #from pprint import pprint
     #pprint(modulize(ns.grafs).urlpatterns)
 

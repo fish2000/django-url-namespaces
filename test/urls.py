@@ -1,17 +1,15 @@
 
-from django.core.urlresolvers import reverse
-#from django.core.urlresolvers import reverse_lazy
-from django.conf.urls import patterns
 from pprint import pprint
-from url_namespaces import modulize
+from django.conf.urls import patterns
+
 from url_namespaces import Namespace, View, Redirect, ReverseRedirect, KeywordReverseRedirect
 
 
 class MyOtherURLs(Namespace):
-        
+    
     class Meta:
         namespace = 'testapp:views' # optional
-        app_name = 'testapp' # optional
+        app_name = 'views' # optional
         view_prefix = '' # optional
         
     rss = View(
